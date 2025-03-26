@@ -22,7 +22,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/avlogo2.jpg">
     <link rel="manifest" href="assets/img/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/avlogo2.jpg">
     <meta name="theme-color" content="#ffffff">
 
     <!--==============================
@@ -73,7 +73,7 @@
             <div class="widget footer-widget">
                 <div class="widget-about">
                     <div class="footer-logo">
-                        <a href="index.html"><img src="assets/img/avlogo.png" alt="AV Fitness"></a>
+                        <a href="/"><img src="assets/img/avlogo.png" style="max-width: 160px !important;" alt="AV Fitness logo"></a>
                     </div>
                     <p class="about-text">A premier fitness center providing expert training, quality equipment, and workouts for all levels.</p>
                     <div class="social-btn">
@@ -103,7 +103,7 @@
         <div class="mobile-menu-area text-center">
             <button class="menu-toggle"><i class="fal fa-times"></i></button>
             <div class="mobile-logo">
-                <a href="index.html"><img src="assets/img/avlogo.png" alt="AV Fitness"></a>
+                <a href="/"><img src="assets/img/avlogo.png" style="max-width: 160px !important;" alt="AV Fitness logo"></a>
             </div>
             <div class="mobile-menu">
                 <ul>
@@ -130,7 +130,7 @@
         </div>
     </div>
 	<!-- Header Area -->
-    <header class="nav-header header-layout1">  
+    <header class="nav-header header-layout1">
         <div class="header-top d-lg-block d-none">
             <div class="container-fluid">
                 <div class="row justify-content-center justify-content-lg-between align-items-center gy-2">
@@ -149,7 +149,7 @@
                                     <div class="social-links">
                                         <span class="me-3">Visit our social pages</span>
                                         <a href="https://www.facebook.com/people/AV-FITNESS4848/100094649233111/?mibextid=2JQ9oc" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="https://www.instagram.com/av_fitness_4848/"><i class="fab fa-instagram" target="_blank"></i></a>
+                                        <a href="https://www.instagram.com/av_fitness_4848/" target="_blank"><i class="fab fa-instagram"></i></a>
                                         <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-youtube"></i></a>
                                     </div>
                                 </li>
@@ -166,7 +166,7 @@
                     <div class="row align-items-center justify-content-lg-start justify-content-between">
                         <div class="col-auto">
                             <div class="header-logo">
-                                <a href="index.html"><img src="assets/img/logo.svg" alt="logo"></a>
+                                <a href="/"><img src="assets/img/avlogo.png" style="max-width: 160px !important;" alt="AV Fitness logo"></a>
                             </div>
                         </div>
                         <div class="col-auto">
@@ -336,7 +336,7 @@
                         <div class="widget footer-widget">
                             <div class="widget-about">
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="assets/img/avlogo.png" alt="AV Fitness"></a>
+                                    <a href="/"><img src="assets/img/avlogo.png" style="max-width: 160px !important;" alt="AV Fitness logo"></a>
                                 </div>
                                 <p class="about-text">A premier fitness center providing expert training, quality equipment, and workouts for all levels.</p>
                                 <div class="social-btn">
@@ -434,5 +434,23 @@
 
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
+    <!-- Contact Form Submission Alert -->
+    <script>
+        $("#gform").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbzp5Yxf4KfZds7kG9muK-MJdWquibe0mKoP7g-kasT3IxnTTFARz06jjXlhV_LP5U5K/exec",
+                data:$("#gform").serialize(),
+                method:"post",
+                success: function(response) {
+                    $("#submit-alert").text("Form Submitted successfully").css({"color": "grey", "font-weight": "700", "text-shadow": "1px 1px 11px #9dff00"});
+                    setTimeout(() => window.location.reload(), 5000); // Reload after 5 seconds
+                },
+                error: function(err) {
+                    $("#submit-alert").text("Something Went Wrong.. Please try submitting again or try Contacting through WhatsApp or Mobile Number").css({"color": "grey", "font-weight": "700", "text-shadow": "1px 1px 11px red"});
+                }
+            })
+        })
+    </script>
 </body>
 </html>
